@@ -26,7 +26,6 @@ public class CheckersApplication extends Application {
 
     private Parent createContent() {
         Pane root = new Pane();
-       // root.setPrefSize(WIDTH * TILE_SIZE, HEIGHT * TILE_SIZE);
         root.setPrefSize(900, 640);
         root.getChildren().addAll(tileGroup, pieceGroup);
 
@@ -40,7 +39,7 @@ public class CheckersApplication extends Application {
                 Piece piece = null;
 
                 if (y <= 2 && (x + y) % 2 != 0) {
-                    piece = makePiece(PieceType.RED, x, y);
+                    piece = makePiece(PieceType.BLACK, x, y);
                 }
 
                 if (y >= 5 && (x + y) % 2 != 0) {
@@ -138,40 +137,3 @@ public class CheckersApplication extends Application {
         launch(args);
     }
 }
-/*
-    private Image imageback = new Image("file:resources/szachownica-1200.png");
-    private Image pieceBlack = new Image("file:resources/pieceBlackMini.png");
-    private Image pieceWhite = new Image("file:resources/pieceWhiteMini.png");
-    private FlowPane pieces = new FlowPane(Orientation.HORIZONTAL);
-
-    public static void main(String[] args) {
-        launch(args);
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        BackgroundSize backgroundSize = new BackgroundSize(100, 100, true, true, true, false);
-        BackgroundImage backgroundImage = new BackgroundImage(imageback, BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, backgroundSize);
-        Background background = new Background(backgroundImage);
-
-        GridPane grid = new GridPane();
-        grid.setAlignment(Pos.CENTER_LEFT);
-        grid.setPadding(new Insets(11.5, 12.5, 13.5, 14.5));
-        grid.setHgap(5.5);
-        grid.setVgap(5.5);
-        grid.setBackground(background);
-
-        ImageView img = new ImageView(pieceBlack);
-        pieces.getChildren().add(img);
-
-        grid.add(pieces, 0, 0, 3, 1);
-
-        Scene scene = new Scene(grid, 940, 600, Color.BLACK);
-
-        primaryStage.setTitle("CheckersApplication");
-        primaryStage.setScene(scene);
-        primaryStage.show();
-    }
-
-}
-*/
